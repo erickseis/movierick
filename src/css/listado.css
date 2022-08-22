@@ -1,0 +1,16 @@
+.container-card{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    gap: 2rem;
+
+}
+.card{
+    width: 300px;
+    justify-content: center;
+    align-items: center;
+    text-align: justify;
+
+}
+.card img{
+    object-fit: contain;
+}
