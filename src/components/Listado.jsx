@@ -1,3 +1,4 @@
+import swal from "@sweetalert/with-react";
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { Link, Redirect } from "react-router-dom";
@@ -15,7 +16,12 @@ const Listado = () => {
         const endPoint = 'https://api.themoviedb.org/3/discover/movie?api_key=159db9ddde721e480f67c8a521701832&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=1&with_watch_monetization_types=flatrate';
 
         axios.get(endPoint)
-            .then(res => { setMovies((res.data.results)) })
+            .then(res => { setMovies((res.data.results)) 
+            })
+            .catch(error=>{
+                swal(<h2>Tuvimos un problema</h2>)
+
+            })
 
     }, [setMovies]);
     console.log(movies)
@@ -28,11 +34,11 @@ const Listado = () => {
                         return (
                             <div key={idx} className="col-3">
                                 {/*estructura base*/}
-                                <div className="card" >
+                                <div className="card my-4" >
                                     <img src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`} className="card-img-top" alt="..."  />
                                     <div className="card-body">
                                         <h5 className="card-title">{movie.title}</h5>
-                                        <p className="card-text">{movie.overview}</p>
+                                        <p className="card-text">{movie.overview.substring(0, 100)}...</p>
                                         <Link to="/" className="btn btn-primary">Detail somewhere</Link>
                                     </div>
                                 </div>

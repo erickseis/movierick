@@ -1,7 +1,7 @@
 import axios from "axios";
 import swal from '@sweetalert/with-react';
 import { Redirect, useHistory } from "react-router-dom";
-
+import Footer from './Footer'
 
 const Login = () => {
     const history = useHistory();
@@ -73,6 +73,7 @@ const Login = () => {
                     </form>
                 </div>
             </div>
+            <Footer/>
         </>
     );
 };

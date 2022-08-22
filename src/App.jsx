@@ -4,7 +4,6 @@ import { Switch, Route } from 'react-router-dom'
 import Navbar from './components/Navbar';
 import Login from "./components/Login";
 import Listado from "./components/Listado";
-import Footer from './components/Footer';
 //styles
 import './css/bootstrap.min.css';
 import './css/App.css'
@@ -19,7 +18,7 @@ function App() {
           <Route path="/Listado" component={Listado} />
         </Switch>
       </div>
-      <Footer />
+   
     </>
   );
 }
