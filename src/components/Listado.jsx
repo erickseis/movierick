@@ -1,8 +1,10 @@
+import React from "react";
 import swal from "@sweetalert/with-react";
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { Link, Redirect } from "react-router-dom";
 import '../css/listado.css'
+
 
 
 
@@ -13,7 +15,7 @@ const Listado = () => {
     const [movies, setMovies] = useState([])
 
     useEffect(() => {
-        const endPoint = 'https://api.themoviedb.org/3/discover/movie?api_key=159db9ddde721e480f67c8a521701832&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=1&with_watch_monetization_types=flatrate';
+        const endPoint = 'https://api.themoviedb.org/3/discover/movie?api_key=159db9ddde721e480f67c8a521701832&language=es-Es&sort_by=popularity.desc&include_adult=false&include_video=false&page=1&with_watch_monetization_types=flatrate';
 
         axios.get(endPoint)
             .then(res => { setMovies((res.data.results)) 
@@ -39,7 +41,7 @@ const Listado = () => {
                                     <div className="card-body">
                                         <h5 className="card-title">{movie.title}</h5>
                                         <p className="card-text">{movie.overview.substring(0, 100)}...</p>
-                                        <Link to="/" className="btn btn-primary">Detail somewhere</Link>
+                                        <Link to={`/Detail${movie.id}`} className="btn btn-primary">Detail somewhere</Link>
                                     </div>
                                 </div>
                             </div>

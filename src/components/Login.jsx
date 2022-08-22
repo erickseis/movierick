@@ -1,7 +1,9 @@
+import React from "react";
 import axios from "axios";
-import swal from '@sweetalert/with-react';
+import swal from 'sweetalert';
 import { Redirect, useHistory } from "react-router-dom";
 import Footer from './Footer'
+import { Form } from 'react-bootstrap';
 
 const Login = () => {
     const history = useHistory();
@@ -58,7 +60,7 @@ const Login = () => {
             <div className="row">
                 <div className="col-6 offset-3">
                     <h1>Formulario</h1>
-                    <form onSubmit={submitHandler}>
+                    <Form onSubmit={submitHandler}>
                         <label className="form-label d-block mt-2">
                             <span>Correo electronico:</span> <br />
                             <input className="form-control" type="text" name="email" />
@@ -70,7 +72,7 @@ const Login = () => {
                         </label>
                         <br />
                         <button className="btn btn-success mt-2" type="submit">ingresar</button>
-                    </form>
+                    </Form>
                 </div>
             </div>
             <Footer/>
